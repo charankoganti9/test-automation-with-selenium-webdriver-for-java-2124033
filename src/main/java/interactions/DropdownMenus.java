@@ -14,6 +14,13 @@ public class DropdownMenus extends Main {
   public static void main(String[] args) {
     driver.get("https://www.selenium.dev/selenium/web/web-form.html");
 
+    Select dropDown = new Select(driver.findElement(By.name("my-select")));
+    dropDown.selectByValue(2);
+    dropDown.selectByIndex(1);
+    dropDown.selectVisibleText("Three");
+
+    WebElement selectedOption = dropDown.getFirstSelectedOption();
+    List<WebElement> selectedOptions = dropDown.getAllSelectedOptions();
 
 
     driver.quit();
